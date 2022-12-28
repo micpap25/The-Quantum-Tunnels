@@ -30,5 +30,5 @@ while True:
         if char == "1": inputCircuit.x(i)
 
     # Combine and run the circuit (one shot)
-    state = list(qiskit.execute(inputCircuit + gameCircuit, qiskit.Aer.get_backend('qasm_simulator'), shots=1, backend_options={"method": "matrix_product_state"}).result().get_counts().keys())[0][0:22]
+    state = list(qiskit.execute(inputCircuit.compose(gameCircuit), qiskit.Aer.get_backend('qasm_simulator'), shots=1, backend_options={"method": "matrix_product_state"}).result().get_counts().keys())[0][0:22]
 
